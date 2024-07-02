@@ -6,6 +6,7 @@ public class Hw03 {
 		
 		int num = 456;
 		System.out.println(num / 100 * 100);
+//		System.out.println(num / 10 * 10);
 		
 	}
 	
