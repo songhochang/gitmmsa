@@ -8,18 +8,19 @@ public class Ex07 {
 		
 		while((n++) < 100) {
 			
-//			if(n % 5 != 0 || n % 7 != 0) {
-//				continue;
-//			}
-//			else {
-//				System.out.println(n);
-//				break;
-//			}
-			
-			if(n % 5 != 0) {
+			if(n % 5 != 0 || n % 7 != 0) {
 				continue;
 			}
-			System.out.println(n);
+			else {
+				System.out.println(n);
+				break;
+			}
+			
+//			if(n % 5 != 0) {
+//				continue;
+//			}
+//			System.out.println(n);
+			
 		}
 		
 	}
