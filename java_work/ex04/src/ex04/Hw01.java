@@ -22,6 +22,13 @@ public class Hw01 {
 		}
 		
 		System.out.println(nob);
+		
+		int noas = 123;
+		int sobs = 10;
+		int nobs = noas / sobs + (noas % sobs > 0 ?  1 : 0);
+		
+		System.out.println(nobs);
+		
 	}
 
 }
