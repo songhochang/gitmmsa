@@ -8,3 +8,12 @@
   text-align: center;
   background-color: red;
 }
+#b2{
+  text-align: right;
+  background-color: skyblue;
+}
+
+.rb{
+  background-color: khaki;
+  padding: 12px;
+}
