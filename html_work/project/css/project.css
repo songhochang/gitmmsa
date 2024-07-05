@@ -1,3 +1,8 @@
-.head{
+#head{
+  padding: 50px 100px;
+}
+
+.headh{
 text-align: center;
+background-color: blue;
 }
