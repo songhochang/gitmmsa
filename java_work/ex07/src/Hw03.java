@@ -20,22 +20,26 @@ public class Hw03 {
 
     public static void doB() {
 
-        while (true) {
-            int a = (int) (Math.random() * 100);
-            if (a >= 1 && a <= 6) {
+        for (int i = 0; i < 50; i++) {
+            while (true) {
+                int a = (int) (Math.random() * 100);
+                if (a >= 1 && a <= 6) {
 
-                int value = a;
-                System.out.println(value);
+                    System.out.println(a);
 
-                break;
+                    break;
+                }
             }
         }
 
     }
 
     public static void doC() {
-        int a = (int) (Math.random() * 10 % 6 + 1);
-        System.out.println(a);
+        int value = 0;
+        for (int i = 0; i < 10; i++) {
+            value = (int) (Math.random() * 10 % 6 + 1);
+            System.out.println(value);
+        }
     }
 
     public static void main(String[] args) {

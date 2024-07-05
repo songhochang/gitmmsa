@@ -19,7 +19,7 @@ public class Hw02 {
 
         //1~6 0~5
         for(int i = 0; i < 100; i++){
-            int a = (int)(Math.random() * 10 % 6) + 1;
+            int a = (int)(Math.random() * 6) + 1;
             System.out.println(a);
         }
 
