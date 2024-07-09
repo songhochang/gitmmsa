@@ -13,5 +13,6 @@ public class AAAAA {
         System.out.println("*");
         go(n - 1);
         go(n - 1);
+        go(n-1);
     }
 }
