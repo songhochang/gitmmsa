@@ -16,23 +16,31 @@ public class Hw04 {
 
                 if(a % i == 0 && b % i ==0){
                     answer = i;
+                    System.out.print(answer + " ");
                 }
 
             }
 
-            System.out.println(answer);
+            System.out.println();
+            System.out.println("최대공약수 = " + answer);
         }
 
-        if(b > a){
+        else if(b > a){
             for(int i = 1; i <= a; i++){
 
                 if(a % i == 0 && b % i ==0){
                     answer = i;
+                    System.out.print(answer + " ");
                 }
 
             }
 
-            System.out.println(answer);
+            System.out.println();
+            System.out.println("최대공약수 = " + answer);
+        }
+
+        else{
+            System.out.println("최대공약수 = " + a);
         }
 
     }
