@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
+* {
+  font-family: "Black Han Sans", '맑은 고딕';
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 960px;
+  min-width: 960px;
+  margin: 0 auto;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #ccee7c;
+}
+
+.logo {
+  float: left;
+  display: block;
+  padding: 0.3rem;
+  margin: 0.2rem;
+  background-color: honeydew;
+}
+
+ul {
+  float: right;
+}
+
+li {
+  list-style: none;
+  float: left;
+}
+
+a {
+  color: #333;
+  display: block;
+  padding: 0.4rem 1rem;
+  margin: 0.8rem 0.3rem;
+  text-decoration: none;
+  /* background-color: aqua; */
+}
+
+.sign {
+  background-color: #b9b7b7;
+  border-radius: 0.3rem;
+}
+
+.register {
+  color: white;
+  background-color: #747373;
+  border-radius: 0.3rem;
+}
+
+.slider>div {
+  height: 400px;
+  overflow: hidden;
+}
+
+.heading>h1, h2 {
+  padding-left: 2rem;
+}
+
+.prevnext{
+  display: flex;
+  justify-content: center;
+}
+
+.sub-heading{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2rem 0;
+}
+
+.sub-heading > div{
+  width: 280px;
+  /* background-color: mediumseagreen; */
+  text-align: center;
+}
