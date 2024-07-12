@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    div{
+      box-sizing: border-box;
+      padding: 20px;
+      width: 200px;
+      height: 200px;
+      background-color: skyblue;
+      box-shadow: 20px 20px 3px 3px greenyellow;
+      animation: aa 2s infinite;
+      border-radius: 20px 90px 70px 90px;
+      margin: 50px;
+    }
+    @keyframes aa{
+      0%{
+        box-shadow: 0px 0px 3px 3px greenyellow;
+      }
+      25%{
+        box-shadow: 150px 150px 3px 3px greenyellow;
+      }
+      50%{
+        box-shadow: 100px 100px 3px 3px greenyellow;
+      }
+      100%{
+        box-shadow: 50px 50px 3px 3px greenyellow;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+</body>
+</html>

@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&display=swap');
 
 * {
-  font-family: "Black Han Sans", '맑은 고딕';
-  font-weight: 400;
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
   font-style: normal;
   margin: 0;
   padding: 0;
@@ -23,7 +25,7 @@
 
 .header {
   overflow: hidden;
-  background-color: #ccee7c;
+  background-color: rgb(255, 180, 41);
 }
 
 .logo {
