@@ -22,9 +22,6 @@ public class Hw04 {
 
         System.out.println(new String(c));
 
-        
-
-
     }
 
 }
