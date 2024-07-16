@@ -23,6 +23,13 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
+
+        body {
+            background-image: url('../project/breadback.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
         * {
             font-family: "Noto Sans KR", sans-serif;
             font-optical-sizing: auto;
@@ -31,7 +38,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* background-image: url('../project/breadback.jpg'); */
         }
 
         #container {
@@ -45,7 +51,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px;
-            background-color: rgb(255, 180, 41);
+            background-color: rgba(255, 180, 41, 0.7);
             border-bottom: 1px solid #ddd;
         }
 
@@ -61,7 +67,7 @@
         }
 
         .sign {
-            /* background-color: rgb(220, 150, 45); */
+            background-color: rgb(220, 150, 45);
             text-decoration: none;
             padding: 0.4rem 1rem;
             margin: 0.8rem 0.3rem;
@@ -85,6 +91,25 @@
             display: block;
             margin: auto;
         }
+
+        .allcategory{
+            width: 960px;
+            min-width: 960px;
+            margin: 0 auto;
+        }
+
+        .category{
+            background-color: rgba(255, 180, 41, 0.6);
+            height: 4rem;
+            text-align: center;
+        }
+        .category a {
+            text-decoration: none;
+            color: black;
+            font-size: 1.5rem;
+            padding: 3rem;
+            
+        }
     </style>
 </head>
 
@@ -107,6 +132,14 @@
                 <div><img src="bread1.jpg" alt="Bread 1"></div>
                 <div><img src="bread2.jpg" alt="Bread 2"></div>
             </div>
+        </div>
+    </div>
+    <div class="allcategory">
+        <div class="category">
+            <a href="#">빵</a>
+            <a href="#">케이크</a>
+            <a href="#">디저트</a>
+            <a href="#">샌드위치</a>
         </div>
     </div>
 </body>

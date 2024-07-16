@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      background-color: #475c5c;
+      width: 1140px;
+      margin: 0 auto;
+      height: 100px;
+    }
+
+    li {
+      list-style: none;
+      display: inline-block;
+    }
+
+    a{
+      color: white;
+      text-decoration: none;
+      margin: 30px;
+      padding: 10px, 30px;
+      line-height: 100px;
+      text-transform: uppercase;
+    }
+    .active{
+      border: 1px solid white;
+    }
+    a:hover{
+      border: 1px solid white;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <ul>
+      <li><a class="active" href="#" id="menu1">MENU1</a></li>
+      <li><a href="#" id="menu2">abdedf</a></li>
+      <li><a href="#" id="menu3">newMenu</a></li>
+      <li><a href="#" id="menu4">SignIn</a></li>
+      <li><a href="#" id="menu5">SingUP</a></li>
+    </ul>
+    <div id="div1">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur, aperiam adipisci omnis rem sequi tenetur illo doloribus, temporibus delectus sed dolore voluptate facere totam cumque quia eaque reprehenderit ut ea?</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur, aperiam adipisci omnis rem sequi tenetur illo doloribus, temporibus delectus sed dolore voluptate facere totam cumque quia eaque reprehenderit ut ea?</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur, aperiam adipisci omnis rem sequi tenetur illo doloribus, temporibus delectus sed dolore voluptate facere totam cumque quia eaque reprehenderit ut ea?</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur, aperiam adipisci omnis rem sequi tenetur illo doloribus, temporibus delectus sed dolore voluptate facere totam cumque quia eaque reprehenderit ut ea?</p>
+    </div>
+    <div id="div2">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur, aperiam adipisci omnis rem sequi tenetur illo doloribus, temporibus delectus sed dolore voluptate facere totam cumque quia eaque reprehenderit ut ea?</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur, aperiam adipisci omnis rem sequi tenetur illo doloribus, temporibus delectus sed dolore voluptate facere totam cumque quia eaque reprehenderit ut ea?</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur, aperiam adipisci omnis rem sequi tenetur illo doloribus, temporibus delectus sed dolore voluptate facere totam cumque quia eaque reprehenderit ut ea?</p>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur, aperiam adipisci omnis rem sequi tenetur illo doloribus, temporibus delectus sed dolore voluptate facere totam cumque quia eaque reprehenderit ut ea?</p>
+    </div>
+  </div>
+</body>
+
+</html>
+
+<script>
+  $(document).ready( function(){ 
+    $('#menu1').mouseenter(function(){$('#div1').fadeIn();});
+    $('#menu1').mouseleave(function(){$('#div1').fadeOut();});
+    $('#menu2').click(function(){$('#div2').fadeToggle();});
+  } );
+</script>
