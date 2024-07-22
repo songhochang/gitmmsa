@@ -2,7 +2,7 @@ package org.example.aa;
 
 import java.util.Arrays;
 
-public class MRText {
+public class MRTest {
 
     public static void main(String[] args) {
 

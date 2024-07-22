@@ -6,7 +6,7 @@ public class Hw03 {
 
     public static void main(String[] args) {
 
-        int[][] arr = new int[5][3];
+        int[][] arr = new int[1][6];
 
         for(int i = 0; i < arr.length; i++){
             for(int j = 0; j <arr[i].length; j++){
@@ -28,8 +28,6 @@ public class Hw03 {
         for(int i = arr.length - 1; i >= 1; i--){
             arr[i] = arr[i - 1];
         }
-
-//        System.out.println(Arrays.toString(arr1));
 
         arr[0] = arr1;
 
