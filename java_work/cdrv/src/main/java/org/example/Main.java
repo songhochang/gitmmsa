@@ -1,22 +1,24 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        int[] a = {};
+        String[] intStrs = {"0123456789", "9876543210","9999999999999"};
 
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        for(int i = 0; i < intStrs.length; i++){
 
-        for(int i = 0; i < 10; i++){
-            list.add(i + 1);
-            System.out.println(list);
+            int a = Integer.parseInt(intStrs[i].substring(5,10));
+            System.out.println(a);
+
+            String str = intStrs[i].c
         }
 
-        
+
 
 
 
