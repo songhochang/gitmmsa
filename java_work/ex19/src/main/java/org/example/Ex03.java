@@ -24,6 +24,8 @@ public class Ex03 {
             System.out.println(c[4]);
 
         } catch (ArithmeticException e) {
+            System.out.println(e.getMessage());
+//            e.printStackTrace();
             System.out.println("0으로 나눌 수 없습니다");
         } catch (InputMismatchException ie){
             System.out.println("숫자만......");
