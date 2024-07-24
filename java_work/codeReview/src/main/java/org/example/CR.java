@@ -13,7 +13,7 @@ public class CR {
             String start_str = sc.next();
 
             if(start_str.equals("y")){
-                doA();
+                updown();
                 break;
             }
             else if(start_str.equals("n")){
@@ -29,7 +29,7 @@ public class CR {
 
     }
 
-    public static void doA(){
+    public static void updown(){
 
         int com_num = (int)(Math.random()*100) + 1;
         int count = 0;
