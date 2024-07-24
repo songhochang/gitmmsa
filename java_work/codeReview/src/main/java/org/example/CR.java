@@ -30,17 +30,15 @@ public class CR {
 
             System.out.print("숫자를 입력하세요 : ");
             int user_num = sc.nextInt();
+            count += 1;
 
             if(user_num > com_num){
                 System.out.println("다운");
-                count += 1;
             }
             else if(user_num < com_num){
                 System.out.println("업");
-                count += 1;
             }
             else{
-                count += 1;
                 System.out.println("정답입니다");
                 System.out.println("시도 횟수 : " + count);
                 break;
