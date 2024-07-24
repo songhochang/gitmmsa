@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48cdb4b5-85d0-4992-8b97-d2691db47bf0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cote.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ex19/src/main/java/org/example/Ex03.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ex19/src/main/java/org/example/Ex03.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ex20/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/../ex20/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +20,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -49,11 +42,15 @@
     "Application.A06.executor": "Run",
     "Application.A07.executor": "Run",
     "Application.A08.executor": "Run",
+    "Application.A10.executor": "Run",
+    "Application.B01.executor": "Run",
+    "Application.B02.executor": "Run",
+    "Application.B03.executor": "Run",
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/work/java_work/ex19",
+    "last_opened_file_path": "D:/work/java_work/cote",
     "onboarding.tips.debug.path": "D:/work/java_work/cote/src/Main.java"
   }
 }]]></component>

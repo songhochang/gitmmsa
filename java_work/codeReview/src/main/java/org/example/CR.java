@@ -6,15 +6,25 @@ public class CR {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+        while (true){
+            Scanner sc = new Scanner(System.in);
 
-        System.out.println("시작하시겠습니까? y / n....");
-        String start_str = sc.next();
-        if(start_str.equals("y")){
-            doA();
-        }
-        else{
-            System.out.println("종료합니다......");
+            System.out.println("시작하시겠습니까? y / n....");
+            String start_str = sc.next();
+
+            if(start_str.equals("y")){
+                doA();
+                break;
+            }
+            else if(start_str.equals("n")){
+                System.out.println("종료합니다......");
+                break;
+            }
+            else{
+                System.out.println("y / n 중에서 입력해주세요...");
+                System.out.println();
+            }
+
         }
 
     }
@@ -45,6 +55,7 @@ public class CR {
             }
 
         }
+
     }
 
 }
