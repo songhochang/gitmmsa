@@ -4,19 +4,11 @@ public class B03 {
 
         String cipher = "dfjardstddetckdaccccdegk";
         int code = 4;
+        String answer = "";
 
-        char[] c = new char[cipher.length() / code];
-        char[] c_cipher = cipher.toCharArray();
+        for(int i = 1; i < cipher.length()/code; i++){
 
-        for(int i = 0; i < c.length; i++){
-            for(int j = 1; j < c_cipher.length; j++){
-                if(j % code == 0){
-                    c[i] = c_cipher[j];
-                }
-            }
         }
-
-        String answer = new String(c);
 
         System.out.println(answer);
 
