@@ -14,7 +14,9 @@ public class Ex06 {
 
             System.out.println("가능?");
 
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO student values ('김길동','100','100','100')");
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO student values ('김길동',100,100,100)");
+
+            pstmt.executeUpdate();
 
         } catch (Exception e){
             e.printStackTrace();

@@ -1,13 +1,11 @@
 package org.example.second;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
-public class RR {
+public class AAAAAAA {
 
     public static void main(String[] args) {
 
-        
+
 
     }
+
 }
