@@ -29,6 +29,9 @@
         nav {
             display: flex;
             justify-content: center;
+            padding: 10px 0;
+            border-top: solid 2px rgb(255, 180, 41);
+            border-bottom: solid 2px rgb(255, 180, 41);
         }
 
         nav a {
@@ -38,17 +41,28 @@
             width: 70px;
             text-decoration: none;
             text-align: center;
-            background-color: rgba(255, 180, 41, 0.3);
+            border: solid 3px rgb(255, 180, 41);
+            border-radius: 17px;
         }
 
         nav a:hover {
             background-color: rgb(255, 180, 41);
         }
 
+        .search-div{
+            position: absolute;
+            padding: 5px;
+            width: 4.6rem;
+            right: 280px;
+            top: 50px;
+        }
+
         .slide-container{
             max-width: 1000px;
             position: relative;
-            margin: auto;
+            margin: 20px auto;
+            border: solid 3px rgb(255, 180, 41);
+            border-radius: 30px;
         }
 
         .slideimg{
@@ -84,7 +98,7 @@
         }
 
         .footer {
-            background-color: rgb(255, 180, 41);
+            border-top:solid 2px rgb(255, 180, 41);
             /* position: fixed; */
             padding: 10px 0;
             width: 100%;
@@ -102,24 +116,28 @@
         </header>
         <nav>
             <a href="#home">홈</a>
-            <a href="#about">카테고리</a>
-            <a href="#menu">장바구니</a>
-            <a href="#contact">결제하기</a>
+            <a href="#category">카테고리</a>
+            <a href="#bucket">장바구니</a>
+            <a href="#pay">결제하기</a>
         </nav>
+        <div class="search-div">
+            <input type="text">
+            <button>검색</button>
+        </div>
     </div>
 
     <div class="slide-container">
         <div class="slideimg">
-            <img src="bread1.jpg" width="780px" height="600px">
+            <img src="../img/bread1.jpg" width="780px" height="600px">
         </div>
         <div class="slideimg">
-            <img src="cake1.jpg" width="780px" height="600px">
+            <img src="../img/cake1.jpg" width="780px" height="600px">
         </div>
         <div class="slideimg">
-            <img src="salad1.jpg" width="780px" height="600px">
+            <img src="../img/salad1.jpg" width="780px" height="600px">
         </div>
         <div class="slideimg">
-            <img src="macarong1.jpg" width="780px" height="600px">
+            <img src="../img/macarong1.jpg" width="780px" height="600px">
         </div>
         <a class="prev" onclick="plusSlides(-1)">&#10094</a>
         <a class="next" onclick="plusSlides(1)">&#10095</a>
@@ -168,7 +186,7 @@
         
     </div>
     <footer class="footer">
-        <p>상호명 : (주)뛰뛰빵빵 주소 : </p>
+        <p>상호명 : (주)뛰뛰빵빵 주소 : 대구시 </p>
     </footer>
 </body>
 

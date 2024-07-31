@@ -37,3 +37,238 @@ select bookname, publisher from Book where bookname like '축구%';
 select bookname, publisher from Book where bookname like '%축구';
 select bookname, publisher from Book where bookname like '축구';
 
+select name, phone from Customer where name Like '%김연아%';
+select phone from customer where name like '%김연아%';
+select name, phone from customer where address like '%서울%';
+select name, phone from customer where address like '%대한민국%';
+select name, phone from customer where custid like '1';
+select name, phone from customer where custid like '2';
+select name, phone from customer where custid like '3';
+select name, phone from customer where custid like '4';
+select name, phone from customer where custid like '5';
+select name, phone, custid from customer where address like '%대한민국%';
+
+select * from book;
+select * from orders;
+
+select bookname, publisher from book where price >= 10000;
+select bookname, publisher, price from book where price >= 10000;
+
+select bookname, publisher from book where price >= 10000 and price <= 20000;
+select bookname, publisher, price from book where price >= 10000 && price <=20000;
+
+select publisher
+from book;
+
+select distinct publisher
+from book;
+
+select name
+from customer
+where phone is null;
+
+select name
+from customer
+where phone is not null;
+
+select bookname
+from book
+where (publisher like '굿스포츠') and (price between 10000 and 19999);
+
+select *
+from book
+where publisher = '굿스포츠' and price between 10000 and 19999;
+
+select *
+from book
+where publisher = '굿스포츠';
+
+select *
+from book
+where publisher = '굿스포츠' or publisher = '대한미디어';
+
+select *
+from book
+where publisher like '굿스포츠' or publisher like '대한미디어';
+
+select *
+from book
+where publisher in ('굿스포츠', '대한미디어');
+
+select *
+from book
+where publisher not in ('굿스포츠', '대한미디어');
+
+select *
+from book
+where bookname like '_구%';
+
+update book
+set bookname = '그 여자의 축구'
+where bookid = 2;
+
+select * from book;
+
+select *
+from book
+where bookname like '_구%';
+
+delete from book
+where bookid = 2;
+
+select *
+from book
+order by bookname asc;
+
+select *
+from book
+order by bookname desc;
+
+select *
+from book
+order by price asc;
+
+select *
+from book
+order by price desc;
+
+select *
+from book
+order by price;
+
+select *
+from book
+order by price, bookname;
+
+select *
+from book
+order by price;
+
+select count(saleprice)
+from orders;
+
+select sum(saleprice)
+from orders;
+
+select max(saleprice)
+from orders;
+
+select sum(saleprice) as Total,
+avg(saleprice) as Average,
+min(saleprice) as Minimum,
+max(saleprice) as Maximum
+from orders;
+
+select custid,
+count(saleprice) as '총수량',
+sum(saleprice) as '총판매액'
+from orders group by custid;
+
+select *
+from customer;
+
+select *
+from orders
+where saleprice >= 8000
+order by custid;
+
+select custid, count(*)
+from orders
+where saleprice >= 8000
+group by custid;
+
+select * from customer, orders
+where customer.custid = orders.custid;
+
+select name, saleprice
+from customer, orders
+where customer.custid = orders.custid;
+
+select name, count(*) as '도서수량'
+from customer, orders
+where (saleprice >= 8000) and customer.custid = orders.custid
+group by customer.name;
+
+select customer.name, book.bookname
+from customer, book, orders
+where (customer.custid = orders.custid) and (book.bookid = orders.bookid)
+order by book.bookname;
+
+select customer.name, book.bookname
+from customer, book, orders
+where (customer.custid = orders.custid) and (book.bookid = orders.bookid) and (book.price >= 20000)
+order by book.bookname;
+-- 1
+select bookname
+from book
+where bookid = 1;
+-- 2
+select bookname
+from book
+where price >= 20000;
+-- 3
+select customer.name, sum(saleprice)
+from customer, orders
+where (customer.name = '박지성') and (customer.custid = orders.custid);
+-- 4
+select customer.name, count(bookid)
+from customer, orders
+where (customer.name = '박지성') and (customer.custid = orders.custid);
+-- 5
+select customer.name, count(publisher)
+from customer, orders, book
+where (customer.name = '박지성') and (customer.custid = orders.custid) and (book.bookid = orders.bookid);
+-- 6
+select customer.name, book.bookname, book.price, book.price - orders.saleprice as '정가 - 판매가'
+from customer, orders, book
+where (customer.name = '박지성') and (customer.custid = orders.custid) and (book.bookid = orders.bookid);
+-- 7
+select book.bookname
+from orders, book, customer
+where (customer.name != '박지성') and (customer.custid = orders.custid) and (book.bookid = orders.bookid);
+-- 8
+select count(bookname)
+from book;
+-- 9
+select count(distinct publisher)
+from book;
+-- 10
+select name, address
+from customer;
+-- 11
+select book.bookname
+from orders, book
+where (orderdate between ('24-07-04') and ('24-07-07')) and (book.bookid = orders.bookid);
+-- 12
+select name, address
+from customer
+where name like ('김%');
+-- 13
+select name, address
+from customer
+where name like ('김%') and name like ('%아');
+-- 14
+select sum(saleprice), avg(saleprice)
+from orders;
+-- 15
+select customer.name, sum(saleprice)
+from customer, orders
+where (customer.custid = orders.custid)
+group by customer.name;
+-- 16
+select customer.name, book.bookname
+from customer, orders, book
+where (customer.custid = orders.custid) and (book.bookid = orders.bookid)
+order by customer.name;
+
+-- 가장 비싼 도서의 이름
+select bookname from book
+where price = (select max(price) from book);
+
+-- 도서를 구매한 이력이 있는 고객명 서브쿼리
+select name from customer
+where custid in (select distinct custid from orders);
+-- 도서를 구매한 이력이 있는 고객명 join
+select distinct customer.name
+from customer, orders
+where customer.custid = orders.custid;
