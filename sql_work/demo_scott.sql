@@ -80,7 +80,10 @@ where ENAME like 'S%';
 select max(SAL) 'MAX', min(SAL) 'MIN', sum(SAL) 'SUM', round(avg(SAL)) 'AVG'
 from EMP;
 
--- 6) 업무 이름과 업무별로 동일한 업무를 하는 사원의 수를 출력 열이름('업무', '업무별 사원수')
+-- 6) 업무 이름과 업무별로 동일한 업무를 하는 사원의 수를 출력 열이름('업무', '업무별 사원수') 출력
+select JOB '업무', count(*)
+from EMP
+group by JOB;
 
 -- 7) 사원의 최대 급여와 최소 급여의 차액을 출력
 select max(SAL) 'MAX', min(SAL) 'MIN', max(SAL)-min(SAL) '차액'
@@ -92,6 +95,7 @@ from EMP
 where DEPTNO = 30;
 
 -- 9) 평균 급여가 가장 높은 부서의 번호를 출력
+
 
 
 -- 10) 세일즈맨을 제외하고 업무별 사원의 급여가 3,000 이상인 업무에 대해서 업무명과 업무별 평균 급여 출력 평균급여는 내림차순
