@@ -119,3 +119,30 @@ order by SAL+COMM desc;
 select DNAME
 from DEPT, EMP
 where (DEPT.DEPTNO = EMP.DEPTNO);
+
+-- 15) 같은 업무를 하는 사람의 인원수를 출력하세요
+
+-- 16) 사원번호가 7400이상 7600이하인 사원의 이름을 출력
+select ENAME
+from EMP
+where EMPNO >= 7400 and EMPNO <= 7600;
+
+-- 17) 사원의 이름과 사원의 부서를 출력하세요
+select ENAME '사원이름', DNAME '부서명'
+from DEPT, EMP
+where EMP.DEPTNO = DEPT.DEPTNO;
+
+-- 18) 사원의 이름과 팀장의 이름을 출력
+select ENAME '사원이름', MGR '팀장명'
+from EMP;
+
+-- 19) 사원 SCOTT보다 급여를 많이 받는 사람의 이름을 출력하세요
+select ENAME
+from EMP
+where SAL > (select SAL from EMP where ENAME = 'SCOTT');
+
+-- 20) 사원 SCOTT이 일하는 부서번호 혹은 DALLAS에 있는 부서번호를 출력하세요
+select DEPTNO
+from EMP, DEPT
+where EMP.DEPTNO = DEPT.DEPTNO and (ENAME = 'SCOTT' or LOC = 'DALLAS')
+group by DEPTNO;

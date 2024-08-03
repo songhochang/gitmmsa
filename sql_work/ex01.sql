@@ -604,3 +604,37 @@ from mybook;
 
 select count(*), count(price) from mybook;
 select sum(price) from mybook;
+
+select *
+from book;
+
+set @seq:= 0;
+select (@seq:=@seq+1), custid, name, phone
+from customer
+where @seq < 3;
+
+select sum(saleprice)
+from orders
+where custid = (select custid from customer where name = '박지성');
+
+select orderid, saleprice
+from orders
+where saleprice <= (select avg(saleprice) from orders);
+
+select orderid, custid, saleprice
+from orders o1
+where saleprice > (select avg(saleprice) from orders o2 where o1.custid = o2.custid);
+
+select avg(saleprice)
+from orders o1, orders o2
+where o1.custid = o2.custid;
+
+select (select name from customer where customer.custid = orders.custid) 'name', sum(saleprice) 'total'
+from orders
+group by custid;
+
+select cs.name, sum(orders.saleprice) 'total'
+from (select custid, name from customer where custid <= 2) cs, orders
+where cs.custid = orders.custid
+group by cs.name;
+
