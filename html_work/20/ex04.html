@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #container{
+      display: flex;
+      flex-direction: row; /*row가 default 값이다*/
+      height: 600px;
+      width: 600px;
+      border: solid 1px black;
+      background-color: blanchedalmond;
+      justify-content: space-around;
+      align-items: center;
+      /* flex-wrap: wrap-reverse; */
+    }
+    #container > div{
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      font-size: 4rem;
+    }
+    #container > div:nth-child(1){
+      background-color: aliceblue;
+    }
+    #container > div:nth-child(2){
+      background-color: skyblue;
+    }
+    #container > div:nth-child(3){
+      background-color: royalblue;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+</body>
+</html>
