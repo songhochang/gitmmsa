@@ -26,14 +26,14 @@ public class DBRepository {
 
             // 2. connection 연결
             Connection conn = DriverManager
-                    .getConnection("jdbc:mysql://127.0.0.1:3307/aaa",
+                    .getConnection("jdbc:mysql://127.0.0.1:3306/aaa",
                             "root",
                             "1234");
 
             System.out.println("연결성공");
 
             // 3. sql문 작성
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO aa (name,age) VALUES (?,?)");
+            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO aaa (name,age) VALUES (?,?)");
             pstmt.setString(1,name);
             pstmt.setInt(2,age);
 
