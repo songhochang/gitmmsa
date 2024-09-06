@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48cdb4b5-85d0-4992-8b97-d2691db47bf0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../ex25/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ex25/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../programmers/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../programmers/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,32 +33,33 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.A01.executor": "Run",
-    "Application.A02.executor": "Run",
-    "Application.A03.executor": "Run",
-    "Application.A04.executor": "Run",
-    "Application.A05.executor": "Run",
-    "Application.A06.executor": "Run",
-    "Application.A07.executor": "Run",
-    "Application.A08.executor": "Run",
-    "Application.A10.executor": "Run",
-    "Application.B01.executor": "Run",
-    "Application.B02.executor": "Run",
-    "Application.B03.executor": "Run",
-    "Application.B04.executor": "Run",
-    "Application.B05.executor": "Run",
-    "Application.B06.executor": "Run",
-    "Application.B07.executor": "Run",
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/work/java_work/cote",
-    "onboarding.tips.debug.path": "D:/work/java_work/cote/src/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.A01.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A02.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A03.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A04.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A05.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A06.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A07.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A08.executor&quot;: &quot;Run&quot;,
+    &quot;Application.A10.executor&quot;: &quot;Run&quot;,
+    &quot;Application.B01.executor&quot;: &quot;Run&quot;,
+    &quot;Application.B02.executor&quot;: &quot;Run&quot;,
+    &quot;Application.B03.executor&quot;: &quot;Run&quot;,
+    &quot;Application.B04.executor&quot;: &quot;Run&quot;,
+    &quot;Application.B05.executor&quot;: &quot;Run&quot;,
+    &quot;Application.B06.executor&quot;: &quot;Run&quot;,
+    &quot;Application.B07.executor&quot;: &quot;Run&quot;,
+    &quot;Application.B08.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/work_s/java_work/cote&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/work/java_work/cote/src/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

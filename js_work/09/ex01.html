@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #modal{
+            position: fixed;
+            display: none;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        #modal-content{
+            margin: 15%, auto;
+            width: 300px;
+            height: 300px;
+            z-index: 1000;
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+</head>
+<body>
+    <div id="modal"></div>
+    <div id="modal-content">
+        <h1>title</h1>
+        <p>04년생 헤나투 베이가</p>
+        <button id="modal-content-btn">close</button>
+    </div>
+    <button id="btn">button</button>
+    <div>
+        <img src="../02/dddd.PNG" height="400">
+    </div>
+    <script>
+        const modal = document.getElementById('modal');
+        document.getElementById("btn").addEventListener('click',()=>{
+            console.log("test");
+            modal.style.display='block';
+        });
+        // window.open('ex02.html','제목')
+    </script>
+</body>
+</html>
