@@ -44,6 +44,8 @@ public class Entry {
         er.insert(etc,state,s_id,b_id);
     }
 
+    String s = "";
+
     public void update() throws SQLException {
 
         EntryRepository er = new EntryRepository();

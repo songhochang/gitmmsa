@@ -1,5 +1,6 @@
 package org.example.book;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,70 +8,98 @@ import java.sql.ResultSet;
 
 public class BookRepository {
 
-    private String b_name;
-    private String b_type;
-    private String publisher;
-    private String country;
-    private int b_id;
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
 
-    public void insert(String b_name, String b_type, String publisher, String country){
-        this.b_name = b_name;
-        this.b_type = b_type;
-        this.publisher = publisher;
-        this.country = country;
+    public void insert() {
 
+        System.out.println("insert 진입");
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/SKLL_Library","root","1234");
-            PreparedStatement pstmt = conn.prepareStatement("INSERT INTO Book (b_name,b_type,publisher,country) VALUES (?,?,?,?)");
-            pstmt.setString(1, b_name);
-            pstmt.setString(2, b_type);
-            pstmt.setString(3, publisher);
-            pstmt.setString(4, country);
+            conn = DriverManager
+                    .getConnection("jdbc:mysql://192.168.0.85:3306/SKLL_Library",
+                            "root",
+                            "1234");
+
+            pstmt = conn.prepareStatement("INSERT INTO Book(b_id,b_name,b_type,publisher,country)values(?,?,?,?,?)");
+            pstmt.setInt(1, 200);
+            pstmt.setString(2, "나를 위한 선물");
+            pstmt.setString(3, "자기계발");
+            pstmt.setString(4, "함께북스");
+            pstmt.setString(5, "국내도서");
+
             pstmt.executeUpdate();
-        }catch (Exception e){
+
+            System.out.println();System.out.println();
+            System.out.println("등록완료");
+            System.out.println();
+            System.out.println();System.out.println();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public void update(int b_id, String b_name, String b_type, String publisher, String country){
-        this.b_id = b_id;
-        this.b_name = b_name;
-        this.b_type = b_type;
-        this.publisher = publisher;
-        this.country = country;
+
+    public void  select() {
 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/SKLL_Library","root","1234");
-            PreparedStatement pstmt = conn.prepareStatement("UPDATE Book SET b_name=?,b_type=?,publisher=?,country=? WHERE b_id=?");
-            pstmt.setString(1,b_name);
-            pstmt.setString(2, b_type);
-            pstmt.setString(3, publisher);
-            pstmt.setString(4, country);
-            pstmt.setInt(5,b_id);
-            pstmt.executeUpdate();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    public void delete(int b_id){
-        this.b_id = b_id;
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/SKLL_Library","root","1234");
-            PreparedStatement pstmt = conn.prepareStatement("DELETE FROM Book WHERE b_id=?");
-            pstmt.setInt(1,b_id);
-            pstmt.executeUpdate();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-    public void select(){
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/SKLL_Library","root","1234");
-            PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM Book");
-            ResultSet rs = pstmt.executeQuery();
-            while (rs.next()){
-                System.out.println("b_id = " + rs.getInt("b_id") + " | " + "b_name = " + rs.getString("b_name") + " | " + "b_type = " + rs.getString("b_type") + " | " + "publisher = " + rs.getString("publisher") + " | " + "country = " + rs.getString("country"));
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            conn = DriverManager.getConnection("jdbc:mysql://192.168.0.85:3306/SKLL_Library", "root", "1234");
+
+            System.out.println("연결성공");
+
+            pstmt = conn.prepareStatement("SELECT* FROM Book");
+
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+
+                System.out.println("""
+                        
+                        B_id = %d
+                        B_name = %s
+                        B_type = %s
+                        publisher = %s
+                        country = %s
+                        
+                        """
+                        .formatted(rs.getInt("B_id"),
+                                rs.getString("B_name"),
+                                rs.getString("B_type"),
+                                rs.getString("publisher"),
+                                rs.getString("country")
+
+                        )
+                );
             }
-        }catch (Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("오류발생");
+        }
+    }
+
+    public void delete() {
+        System.out.println("delete진입");
+        try {
+            conn = DriverManager
+                    .getConnection("jdbc:mysql://192.168.0.85:3306/SKLL_Library",
+                            "root",
+                            "1234");
+
+            pstmt = conn.prepareStatement("delete from Book where b_id = ?");
+
+            int b_id = Integer.parseInt(JOptionPane.showInputDialog("b_id"));
+            pstmt.setInt(1,b_id);
+
+            pstmt.executeUpdate();
+
+            System.out.println();System.out.println();
+            System.out.println("삭제완료");
+            System.out.println();
+            System.out.println();System.out.println();
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
