@@ -1,7 +1,9 @@
 <template>
     <div>
-      <h1>FreeBoard</h1>
+      <h1 class="h1-red">FreeBoardInput</h1>
       <div class="p-5">
+        title = {{ title }}
+        content = {{ content }}
         <input type="text" v-model="title" placeholder="Enter your title here" class="m-4 w-11/12 p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2
                     focus:ring-blue-500 focus:border-transparent text-gray-700 placeholder-gray-400 bg-white" />
         <textarea v-model="content" class="m-4 w-11/12 h-40 p-4 border border-gray-300 rounded-lg shadow-sm 
@@ -19,9 +21,13 @@
 <script setup>
 import axios from 'axios';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 const title = ref('');
 const content = ref('');
+
+const router = useRouter();
+
 const save = ()=>{
     const data = {
         title:title.value,
@@ -32,6 +38,7 @@ const save = ()=>{
     .then(res=>{
         console.log(res);
         alert('저장완료...');
+        router.push({name:"freeboardlist",params:{aa:10, bb:"안녕하세요"}});
     })
     .catch(e=>{
         console.log(e);

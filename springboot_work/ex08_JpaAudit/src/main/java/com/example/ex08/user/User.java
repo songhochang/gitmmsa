@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @Setter
 public class User {
 
-    @Id
+    @Id // primary key 설정
     @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTOINCREMENT 이거 설정해줘...
     private Long idx;
 
