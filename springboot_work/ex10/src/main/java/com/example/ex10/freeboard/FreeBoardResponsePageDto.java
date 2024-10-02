@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class FreeBoardResponsePageDto {
 
-    @Schema(hidden = true) // swagger 문서에서 안보이게
+//    @Schema(hidden = true) // swagger 문서에서 안보이게
     @JsonIgnore // postman 안보이게
     private List<FreeBoard> content;
 

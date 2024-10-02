@@ -32,17 +32,16 @@ public class UserController {
 
     @PutMapping("update")
     public ResponseEntity<String> update(@Valid @RequestBody UserReqDto userReqDto){
-        System.out.println("실행"+ userReqDto);
-        ModelMapper modelMapper = new ModelMapper();
-        User user = modelMapper.map(userReqDto, User.class);
-        System.out.println("user = "+ user);
-        userRepository.save(user);
+
+        System.out.println("일로오나");
+        userService.update(userReqDto);
+
         return ResponseEntity.status(200).body("success update");
     }
 
     // delete * from user where idx = ?
     @DeleteMapping("delete/{idx}")
-    public ResponseEntity<String> delete(@PathVariable long idx){
+    public ResponseEntity<String> delete(@PathVariable(name = "idx") long idx){
         userRepository.deleteById(idx);
         return ResponseEntity.status(200).body("success delete");
     }

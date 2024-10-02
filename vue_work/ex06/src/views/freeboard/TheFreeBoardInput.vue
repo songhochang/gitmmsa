@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <h1 class="h1-red">FreeBoardInput</h1>
@@ -14,6 +13,9 @@
         class="m-4 w-11/12 h-40 p-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent resize-none text-gray-700 placeholder-gray-400 bg-white"
         placeholder="Enter Content here"
       ></textarea>
+      <div class="my-3">
+        <input type="file" name="" id="" @change="onFileChange" />
+      </div>
       <button
         class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
         @click="save"
@@ -21,55 +23,41 @@
         저장
       </button>
     </div>
+    <!-- <ComEditor /> -->
   </div>
 </template>
 
 <script setup>
-import axios from 'axios';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import { saveFreeboard } from '@/api/freeboardApi';
 
 const title = ref('');
 const content = ref('');
-// const regDate = ref('');
-// const creAuthor = ref('');
-// const idx = ref(0);
-
+const myfile = ref(null);
 const router = useRouter();
-// const route = useRoute();
 
-// const getFreeBoard = () => {
-//   axios.get(`http://localhost:8080/freeboard/view/${route.params.idx}`)
-//     .then(res => {
-//       title.value = res.data.title;
-//       content.value = res.data.content;
-//       regDate.value = res.data.regDate;
-//       creAuthor.value = res.data.creAuthor;
-//       idx.value = res.data.idx;
-//     })
-//     .catch(e => {
-//       console.log(e);
-//       alert(e.response.data.message);
-//       router.push({ name: "freeboardlist" });
-//     })
-// }
+const onFileChange = (e) => {
+  myfile.value = e.target.files[0];
+};
 
-const save = () => {
+const save = async () => {
   const data = {
     title: title.value,
     content: content.value
   };
-  axios
-    .post('http://localhost:10000/freeboard', data)
-    .then((res) => {
-      console.log(res);
-      alert('저장하였습니다.');
-      router.push({ name: 'freeboardlist', params: { pagenum: 0 } });
-    })
-    .catch((e) => {
-      console.log(e);
-      alert('에러' + e.response.data.message);
-    });
+
+  const formData = new FormData();
+  formData.append('data', new Blob([JSON.stringify(data)], { type: 'application/json' }));
+  formData.append('file', myfile.value);
+
+  const res = await saveFreeboard(formData);
+  if (res.status == 200) {
+    alert('저장완료...');
+    router.push({ name: 'freeboardlist' });
+    return;
+  }
+  alert('에러' + res.response.data.message);
 };
 </script>
 

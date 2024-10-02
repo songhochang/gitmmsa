@@ -1,6 +1,8 @@
 package com.example.ex10.freeboard;
 
+import com.example.ex10.file.FileEntity;
 import com.example.ex10.user.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedBy;
@@ -10,12 +12,13 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
@@ -29,10 +32,8 @@ public class FreeBoard {
     private String title;
     private String content;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private User user;
-
     @CreatedBy
+    @Column(updatable = false)
     private String creAuthor;
 
     @LastModifiedBy
@@ -48,4 +49,25 @@ public class FreeBoard {
     @Column(columnDefinition = "int default 0")
     private int viewCount;
 
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "freeBoard", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<FileEntity> list = new ArrayList<>();
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
+    private User user;
+
+    @Override
+    public String toString() {
+        return "FreeBoard{" +
+                "idx=" + idx +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", creAuthor='" + creAuthor + '\'' +
+                ", modAuthor='" + modAuthor + '\'' +
+                ", regDate=" + regDate +
+                ", modDate=" + modDate +
+                ", viewCount=" + viewCount +
+                ", list=" + list +
+                '}';
+    }
 }

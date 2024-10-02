@@ -64,7 +64,7 @@ export default {
     })
     .then(result =>{
       list.value = result;
-      // console.log(result);
+      console.log(result);
     })
     .catch(e=>{
       console.log("예외발생");

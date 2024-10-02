@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <header>
-    <div class="p-5 bg-slate-500 text-white text-3xl">
+    <div class="p-5 bg-blue-900 text-white text-3xl">
       <nav class="flex space-x-5">
         <div>
           <RouterLink to="/">Home</RouterLink>
@@ -31,9 +31,6 @@ import { RouterLink, RouterView } from 'vue-router'
         </div>
         <div>
           <RouterLink to="/fileupload">fileupload</RouterLink>
-        </div>
-        <div>
-          <RouterLink to="/fileuploads">fileuploads</RouterLink>
         </div>
         <div>
           <RouterLink to="/filedownload">filedownload</RouterLink>

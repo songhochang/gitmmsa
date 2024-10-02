@@ -1,13 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import TheHome from '@/views/TheHome.vue';
-import TheUser from '@/views/TheUser.vue';
+import TheUserList from '@/views/users/TheUserList.vue';
 
 import TheFreeBoardInput from '@/views/freeboard/TheFreeBoardInput.vue';
 import TheFreeBoardList from '@/views/freeboard/TheFreeBoardList.vue';
 import TheFreeBoardView from '@/views/freeboard/TheFreeBoardView.vue';
 import TheFreeBoardUpdate from '@/views/freeboard/TheFreeBoardUpdate.vue';
 
-import TheFileUpload from '@/views/TheFileUpload.vue';
+import TheFileUpload from '@/views/file/TheFileUpload.vue';
+import TheFileDownload from '@/views/file/TheFileDownload.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,7 +21,7 @@ const router = createRouter({
     {
       path: '/user',
       name: 'user',
-      component: TheUser
+      component: TheUserList
     },
     {
       path: '/freeboardinput',
@@ -46,6 +47,11 @@ const router = createRouter({
       path: '/fileupload',
       name: 'fileupload',
       component: TheFileUpload
+    },
+    {
+      path: '/filedownload',
+      name: '/filedownload',
+      component: TheFileDownload
     }
   ]
 });
