@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: fourhwang
+
+#  sql:
+#    init:
+#      mode: always
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    url: jdbc:mariadb://maria_container:3306/aaa
+    url: jdbc:mysql://192.168.0.216:3307/fourhwang
+    username: root
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate.format_sql: true
+    show-sql: true
+    open-in-view: false
+    # ????? ?? ? ?? data.sql ? ?? insert ?? ????
+#    defer-datasource-initialization: true
+
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      file-size-threshold: 0
