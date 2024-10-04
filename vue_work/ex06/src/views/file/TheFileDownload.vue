@@ -24,7 +24,7 @@ const doTest = () => {
 };
 const downloadImage = async () => {
   try {
-    const response = await axios.get(`${GLOBAL_URL}/file/download/aa.png`, {
+    const response = await axios.get(`${GLOBAL_URL}/file/download/ee.png`, {
       responseType: 'blob' // 이미지를 blob으로 받아옴
     });
 

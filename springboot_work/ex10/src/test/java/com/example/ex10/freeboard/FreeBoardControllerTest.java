@@ -60,6 +60,11 @@ class FreeBoardControllerTest {
     }
 
     @Test
+    void deleteJOQLTest(){
+        freeBoardRepository.customDeleteByIdx(4L);
+    }
+
+    @Test
     void updateTest(){
         User user = User.builder()
                 .name("홍길동")

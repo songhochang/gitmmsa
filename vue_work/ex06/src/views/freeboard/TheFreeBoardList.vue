@@ -10,6 +10,7 @@
             <th class="border">author</th>
             <th class="border">regdate</th>
             <th class="border">viewcount</th>
+            <th class="border">image</th>
           </tr>
         </thead>
         <tbody>
@@ -22,13 +23,13 @@
               class="cursor-pointer hover:bg-blue-200"
               @click="viewPage(item.idx)"
             >
-              <td class="border text-center text-lg p-1">{{ item.idx }}</td>
-              <td class="border text-center text-lg p-1">{{ item.title }}</td>
-              <td class="border text-center text-lg p-1">{{ item.creAuthor }}</td>
-              <td class="border text-center text-lg p-1">{{ item.regDate }}</td>
-              <td class="border text-center text-lg p-1">{{ item.viewCount }}</td>
+              <td class="border text-center text-lg p-2">{{ item.idx }}</td>
+              <td class="border text-center text-lg p-2">{{ item.title }}</td>
+              <td class="border text-center text-lg p-2">{{ item.creAuthor }}</td>
+              <td class="border text-center text-lg p-2">{{ item.regDate }}</td>
+              <td class="border text-center text-lg p-2">{{ item.viewCount }}</td>
               <template v-if="item.list[0]">
-                <td class="border text-center text-lg p-1">
+                <td class="border flex justify-center">
                   <img
                     :src="`${GLOBAL_URL}/file/download/${item.list[0].name}`"
                     alt=""
@@ -36,6 +37,9 @@
                     width="150"
                   />
                 </td>
+              </template>
+              <template v-else>
+                <td class="border"></td>
               </template>
             </tr>
           </template>

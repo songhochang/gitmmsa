@@ -4,7 +4,14 @@
     <h1 class="text-5xl text-blue-800 text-center"><b>USER 수정</b></h1>
     <div class="cursor-pointer p-5 m-5 rounded-2xl w-80 bg-blue-800 text-white">
       <h1>idx = {{ idx }}</h1>
-      <h1>name = <input type="text" v-model="name" class="border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"></h1>
+      <h1>
+        name =
+        <input
+          type="text"
+          v-model="name"
+          class="border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-700"
+        />
+      </h1>
       <h1>email = {{ email }}</h1>
       <h1>가입날짜 = {{ wdate }}</h1>
     </div>
@@ -37,7 +44,20 @@
         <h1>email = {{ item.email }}</h1>
         <h1>가입날짜 = {{ item.wdate }}</h1>
         <h1>작성한 글 = {{ item.list.length }}</h1>
-        <button @click.stop="doDelete(item.idx)">삭제</button>
+        <div class="flex justify-center space-x-10 mt-5">
+          <button
+            class="px-4 py-2 bg-gray-400 text-white font-semibold rounded-lg shadow-md hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-300"
+            @click.stop="modalUser(item.idx)"
+          >
+            수정
+          </button>
+          <button
+            class="px-4 py-2 bg-gray-400 text-white font-semibold rounded-lg shadow-md hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-300"
+            @click.stop="doDelete(item.idx)"
+          >
+            삭제
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -56,17 +76,22 @@ const email = ref();
 
 const isModal = ref(false);
 
-const doDelete = async (idx)=>{
+const doDelete = async (idx) => {
   await deleteUsers(idx);
   const retValue = await getUsers();
   arr.value = retValue.data;
-}
+};
 
 const modalUser = async (item) => {
   isModal.value = !isModal.value;
 
-  if(item == 'save'){
-    await saveUsers({ idx:idx.value, name:name.value, email:email.value, password:"마이패스워드" });
+  if (item == 'save') {
+    await saveUsers({
+      idx: idx.value,
+      name: name.value,
+      email: email.value,
+      password: '마이패스워드'
+    });
     alert('수정 완료....');
     const retValue = await getUsers();
     arr.value = retValue.data;

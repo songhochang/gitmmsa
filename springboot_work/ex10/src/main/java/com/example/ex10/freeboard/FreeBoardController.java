@@ -50,7 +50,8 @@ public class FreeBoardController {
     }
 
     @GetMapping
-    public ResponseEntity<FreeBoardResponsePageDto> findALl(@RequestParam(name = "pageNum", defaultValue = "0") int pageNum
+    public ResponseEntity<FreeBoardResponsePageDto> findALl(
+            @RequestParam(name = "pageNum", defaultValue = "0") int pageNum
             , @RequestParam(name = "size", defaultValue = "5") int size) {
 
         Sort sort = Sort.by(Sort.Direction.DESC, "idx");
@@ -69,9 +70,14 @@ public class FreeBoardController {
                     freeBoardResponseDto.setRegDate(dateTimeFormatter.format(freeBoard.getRegDate()));
                     freeBoardResponseDto.setModDate(dateTimeFormatter.format(freeBoard.getModDate()));
 
-                    freeBoardResponseDto.setCreAuthor(freeBoard.getUser().getName());
-                    freeBoardResponseDto.setModAuthor(freeBoard.getUser().getName());
-                    freeBoardResponseDto.setUserIdx(freeBoard.getUser().getIdx());
+                    if (freeBoard.getUser() != null) {
+                        freeBoardResponseDto.setCreAuthor(freeBoard.getUser().getName());
+                        freeBoardResponseDto.setModAuthor(freeBoard.getUser().getName());
+                        freeBoardResponseDto.setUserIdx(freeBoard.getUser().getIdx());
+                    } else {
+                        freeBoardResponseDto.setCreAuthor("탈퇴한 회원");
+                        freeBoardResponseDto.setModAuthor("탈퇴한 회원");
+                    }
 
                     return freeBoardResponseDto;
                 }).toList();
@@ -85,7 +91,7 @@ public class FreeBoardController {
         // 해당되는 행 찾고...
         FreeBoard freeBoard = freeBoardRepository.findById(idx).orElseThrow(() -> new BizException(ErrorCode.NOT_FOUND));
         // 수정 하고...
-        freeBoard.setViewCount(freeBoard.getViewCount()+1);
+        freeBoard.setViewCount(freeBoard.getViewCount() + 1);
         freeBoardRepository.save(freeBoard);
 
         FreeBoardResponseDto freeBoardResponseDto = modelMapper.map(freeBoard, FreeBoardResponseDto.class);
@@ -93,9 +99,14 @@ public class FreeBoardController {
         freeBoardResponseDto.setRegDate(dateTimeFormatter.format(freeBoard.getRegDate()));
         freeBoardResponseDto.setModDate(dateTimeFormatter.format(freeBoard.getModDate()));
 
-        freeBoardResponseDto.setCreAuthor(freeBoard.getUser().getName());
-        freeBoardResponseDto.setModAuthor(freeBoard.getUser().getName());
-        freeBoardResponseDto.setUserIdx(freeBoard.getUser().getIdx());
+        if (freeBoard.getUser() != null) {
+            freeBoardResponseDto.setCreAuthor(freeBoard.getUser().getName());
+            freeBoardResponseDto.setModAuthor(freeBoard.getUser().getName());
+            freeBoardResponseDto.setUserIdx(freeBoard.getUser().getIdx());
+        } else {
+            freeBoardResponseDto.setCreAuthor("탈퇴한 회원");
+            freeBoardResponseDto.setModAuthor("탈퇴한 회원");
+        }
 
         return ResponseEntity.ok(freeBoardResponseDto);
     }
@@ -104,12 +115,12 @@ public class FreeBoardController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE
     )
-
     public ResponseEntity<FreeBoard> save(
             @Valid @RequestPart(name = "data") FreeBoardReqDto freeBoardReqDto,
             @RequestPart(name = "file", required = false) MultipartFile file) {
 
-        FreeBoard freeBoard = new ModelMapper().map(freeBoardReqDto, FreeBoard.class);
+        FreeBoard freeBoard = modelMapper.map(freeBoardReqDto, FreeBoard.class);
+
         if(freeBoardReqDto.getIdx()==null) {
             freeBoardRepository.save(freeBoard);
         }
@@ -136,6 +147,7 @@ public class FreeBoardController {
             fileEntity.setPath(Paths.get("images/file/").toAbsolutePath().toString());
             fileEntity.setFreeBoard(freeBoard);
             fileRepository.save(fileEntity);
+
             freeBoard.setList(Arrays.asList(fileEntity));
             freeBoardRepository.save(freeBoard);
         }else{
@@ -143,6 +155,7 @@ public class FreeBoardController {
             list.forEach(fileEntity -> {
                 fileRepository.deleteById(fileEntity.getIdx());
             });
+            freeBoard.setList((Arrays.asList()));
             freeBoardRepository.save(freeBoard);
         }
 
@@ -152,8 +165,21 @@ public class FreeBoardController {
 
     @DeleteMapping("delete/{idx}")
     public ResponseEntity<String> deleteById(@PathVariable(name = "idx") long idx) {
-        freeBoardRepository.findById(idx).orElseThrow(() -> new BizException(ErrorCode.NOT_FOUND));
-        freeBoardRepository.deleteById(idx);
+
+        FreeBoard freeBoard = freeBoardRepository.findById(idx)
+                .orElseThrow(() -> new BizException(ErrorCode.NOT_FOUND));
+
+//        freeBoard.setList(new ArrayList<>());
+        freeBoard.setUser(null);
+        freeBoardRepository.save(freeBoard);
+        freeBoardRepository.delete(freeBoard);
+
+//        fileRepository.findByFreeBoardIdx(
+//                freeBoard.getIdx()).forEach(fileEntity -> {
+//            fileRepository.deleteById(freeBoard.getIdx());
+//        });
+//        freeBoardRepository.customDeleteByIdx(idx);
+
         return ResponseEntity.ok("삭제되었습니다.");
     }
 
