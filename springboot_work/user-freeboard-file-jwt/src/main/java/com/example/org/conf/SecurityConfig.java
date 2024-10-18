@@ -41,20 +41,20 @@ public class SecurityConfig {
         http.formLogin(form -> form.disable());
         http.httpBasic(basic -> basic.disable());
 
-        http.authorizeRequests( auth -> auth
-                // 일반 사용자도 접근 가능
-                .requestMatchers("/","/login","/join","/freeboard/**","/user/**","/file/**").permitAll()
-                // swagger 문서 접근
-                .requestMatchers( "/swagger-ui/**", "/v3/api-docs/**" ).permitAll()
-                .requestMatchers("/test/**").permitAll()
-                // ADMIN 으로 role 가지고 있을 때 접근 가능
-                .requestMatchers("/admin").hasRole("ADMIN")
-                .anyRequest().authenticated());
+        http.authorizeRequests( auth -> auth.requestMatchers("/**").permitAll());
+//                // 일반 사용자도 접근 가능
+//                .requestMatchers("/","/login","/join","/freeboard/**","/user/**","/file/**").permitAll()
+//                // swagger 문서 접근
+//                .requestMatchers( "/swagger-ui/**", "/v3/api-docs/**" ).permitAll()
+//                .requestMatchers("/test/**").permitAll()
+//                // ADMIN 으로 role 가지고 있을 때 접근 가능
+//                .requestMatchers("/admin").hasRole("ADMIN")
+//                .anyRequest().authenticated());
 
-        http.addFilterBefore(new JWTFilter(jwtManager   ),LoginFilter.class);
-
-        http.addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtManager),
-                UsernamePasswordAuthenticationFilter.class);
+//        http.addFilterBefore(new JWTFilter(jwtManager   ),LoginFilter.class);
+//
+//        http.addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtManager),
+//                UsernamePasswordAuthenticationFilter.class);
 
         http.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
 

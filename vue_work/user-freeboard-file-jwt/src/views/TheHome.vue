@@ -1,7 +1,6 @@
 <template>
-    <div>
-        <h1>HOME</h1>
-        <p>에휴.....</p>
+    <div class="flex justify-center items-center pt-20">
+        <img src="../images/main222.png" alt="" class="main_image">
     </div>
 </template>
 
@@ -9,6 +8,8 @@
 
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+.main_image {
+    width: 800px; height: 600px;
+}
 </style>

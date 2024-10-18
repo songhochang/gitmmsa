@@ -43,6 +43,7 @@ public class LoginService implements UserDetailsService {
 
         // password 가 1234이면 ADMIN 권한으로 로그인....
         // username 은 아무렇게나 들어와도 된다....
-        return org.springframework.security.core.userdetails.User.builder().username(user.getEmail()).password(user.getPassword()).roles("ADMIN").build();
+//        return org.springframework.security.core.userdetails.User.builder().username(user.getEmail()).password(user.getPassword()).roles("ADMIN").build();
+        return new LoginUserDetails(user.getEmail(),user.getPassword(),user.getRole());
     }
 }

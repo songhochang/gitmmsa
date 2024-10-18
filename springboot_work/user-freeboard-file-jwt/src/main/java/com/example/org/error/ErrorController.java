@@ -18,6 +18,11 @@ public class ErrorController {
     // username 중복
     // email 입력X
 
+    @ExceptionHandler(JWTAuthException.class)
+    public ResponseEntity<String> jwtAuthException(JWTAuthException e){
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
+    }
+
     @ExceptionHandler(SQLIntegrityConstraintViolationException.class)
     public ResponseEntity<ErrorResponse> sqlIntegrityConstraintViolationException(SQLIntegrityConstraintViolationException e){
         ErrorResponse errorResponse = ErrorResponse.builder()

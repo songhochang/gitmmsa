@@ -1,5 +1,6 @@
 package com.example.org.login.jwt;
 
+import com.example.org.error.JWTAuthException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -53,26 +54,6 @@ public class JWTManager {
         return "success";
     }
 
-    public String getEmail(String jwt){
-        String secrekey = environment.getProperty("spring.jwt.secret");
-        try {
-            // 바밀번호 설정
-            SecretKey secretKey
-                    = new SecretKeySpec(secrekey.getBytes(),
-                    Jwts.SIG.HS256.key().build().getAlgorithm());
-            // 해당 비밀번호로 jwt 토큰 복호화 해서 claims 가져오기
-            Jws<Claims> claims = Jwts.parser()
-                    .verifyWith(secretKey)
-                    .build()
-                    .parseSignedClaims(jwt);
-            // claims 안에서 email 가져오기
-            return claims.getPayload().get("email").toString();
-        }catch (Exception e){
-            e.printStackTrace();
-            return "";
-        }
-    }
-
     public Jws<Claims> getclaims(String jwt){
         String secrekey = environment.getProperty("spring.jwt.secret");
         try {
@@ -88,8 +69,7 @@ public class JWTManager {
             // claims 안에서 email 가져오기
             return claims;
         }catch (Exception e){
-            e.printStackTrace();
-            return null;
+            throw new JWTAuthException("JWT TOKEN : " + e.getMessage());
         }
     }
 

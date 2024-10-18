@@ -75,7 +75,7 @@ const router = useRouter();
 const doSubmit = async (event) => {
   console.log('연결됨?' + event);
   const res = await doJoin({
-    name: 'felix',
+    name: 'Felix',
     password: '1234',
     age: '22',
     email: 'jf14@naver.com'
